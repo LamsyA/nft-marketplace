@@ -22,22 +22,22 @@ body {
     ),
     radial-gradient(at 50% 0%, hsl(0deg 39% 30%) 0, transparent 50%),
     radial-gradient(at 100% 0%, hsla(239, 49%, 30%, 1) 0, transparent 50%); */
-/* Created with https://www.css-gradient.com */
-background: #D3EE70;
-background: -webkit-linear-gradient(top left, #D3EE70, #4D51D5);
-background: -moz-linear-gradient(top left, #D3EE70, #4D51D5);
-background: linear-gradient(to bottom right, #D3EE70, #4D51D5);
+  /* Created with https://www.css-gradient.com */
+  background: #d3ee70;
+  background: -webkit-linear-gradient(top left, #d3ee70, #4d51d5);
+  background: -moz-linear-gradient(top left, #d3ee70, #4d51d5);
+  background: linear-gradient(to bottom right, #d3ee70, #5d51d5);
 }
 
 .gradient-bg-artworks {
-  background-color: #0f0e13;
+  background-color: #151c25;
   background-image: radial-gradient(
       at 50% 50%,
       hsl(302deg 25% 18%) 0,
       transparent 50%
     ),
-    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-    radial-gradient(at 50% 50%, hsla(239, 49%, 30%, 1) 0, transparent 50%);
+    radial-gradient(at 0% 0%, hsla(74, 8%, 25%, 0.96) 0, transparent 50%),
+    radial-gradient(at 50% 50%, hsla(236, 47%, 26%, 0.96) 0, transparent 50%);
 }
 
 .gradient-bg-footer {
