@@ -1,8 +1,9 @@
 import React from "react"
 import Artwork from "./components/Artwork"
 import Banner from "./components/Banner"
-
+import Footer from "./components/Footer"
 import Header from "./components/Header"
+import Transactions from "./components/Transactions"
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
       <Banner />
       </div>
       <Artwork/>
+      <Transactions/>
+      <Footer/>
     </div>
   )
 }

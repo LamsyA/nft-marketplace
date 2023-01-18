@@ -6,7 +6,7 @@ const imgBanner =
 
 const Artwork = () => {
   return (
-    <div className='bg-[#4D51D5] gradient-bg-artworks'>
+    <div className='bg-[#4d51d5] gradient-bg-artworks'>
         <div className='w-4/5 py-10 mx-auto'>
             <h4 className='text-white text-3xl font-bold uppercase
             text-gradient'>
@@ -20,6 +20,10 @@ const Artwork = () => {
                     <Card key={i} nft={i +1}/>
                 ))}
             </div>
+            <div className='text-center my-5'>
+            <button className="shadow-lg shadow-black text-white bg-[#b5ba25]
+                 hover:bg-[#D3EE70] rounded-full p-2 py-1"> Load More</button>
+            </div>
         </div>
     </div>
   )
@@ -29,7 +33,7 @@ const Card = ({ nft }) => (
    
    <div className='w-full shadow-xl shadow-black  cursor-pointer
    hover:shadow-slate-100 rounded-md overflow-hidden bg-slate-800
-   p-3 my-2'> 
+   border border-purple-500 p-3 my-2'> 
         <img className='h-60 w-full object-cover shadow-lg shadow-black
         rounded-lg mb-3'
          src={imgBanner} alt='NFT Image'/>
@@ -45,7 +49,7 @@ const Card = ({ nft }) => (
             <div className='flex flex-col '>
                 <small className='text-xs'>Current Price</small>
                 <p className='text-sm font-semibold'>0.34 ETH</p>
-            </div>
+            </div >
                 <button className="shadow-lg shadow-black bg-[#b5ba25]
                  hover:bg-[#D3EE70] rounded-full px-1.5 py-1"> View Details</button>
          </div>
