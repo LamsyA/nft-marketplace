@@ -1,12 +1,16 @@
 import React from "react"
-import Artwork from "./components/Artwork"
 import Banner from "./components/Banner"
+import Collections from "./components/Collections"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
+import MintNFT from "./components/MintNFT"
+import NewNFT from "./components/NewNFT"
 import Transactions from "./components/Transactions"
 
-function App() {
 
+
+
+function App() {
 
   return (
     <div className="min-h-screen">
@@ -14,9 +18,14 @@ function App() {
       <Header/>
       <Banner />
       </div>
-      <Artwork/>
+      <Collections />
       <Transactions/>
       <Footer/>
+      <MintNFT/>
+      <NewNFT/>
+      
+      
+  
     </div>
   )
 }

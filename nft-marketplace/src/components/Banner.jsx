@@ -1,8 +1,14 @@
 import Identicon from 'react-identicons'
+import { setGlobalState } from '../store/Data'
+
 
 const imgBanner = `https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDYvNGE4NmNmOWQtODM2Mi00YmVhLThiMzctZDEyODAxNjUxZTE1LmpwZWc=.jpg`
 
 const Banner = () => {
+    const openToggle =() => {
+        setGlobalState('modal', 'scale-100')
+    }
+   
   return (
     <div className='flex flex-col md:flex-row w-4/5
     justify-between items-center mx-auto py-10'>
@@ -17,7 +23,8 @@ const Banner = () => {
             <div className='flex mt-5 '>
                 <button className='shadow-xl shadow-black text-white
                 bg-[#b5ba25] hover:bg-[#D3EE70] md:text-xs p-2 
-                rounded-full' >
+                rounded-full' 
+                onClick={openToggle}>
                     Create NFT </button>
             </div>
             <div className='flex justify-between items-center mt-5 w-3/4 '>

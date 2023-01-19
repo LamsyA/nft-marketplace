@@ -4,7 +4,7 @@ import React from 'react'
 const imgBanner = 
             `https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDYvNGE4NmNmOWQtODM2Mi00YmVhLThiMzctZDEyODAxNjUxZTE1LmpwZWc=.jpg`
 
-const Artwork = () => {
+const Collections = () => {
   return (
     <div className='bg-[#4d51d5] gradient-bg-artworks'>
         <div className='w-4/5 py-10 mx-auto'>
@@ -56,4 +56,4 @@ const Card = ({ nft }) => (
    </div>
   )
 
-export default Artwork
+export default Collections
