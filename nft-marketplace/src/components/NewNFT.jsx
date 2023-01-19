@@ -11,12 +11,12 @@ const NewNFT = () => {
 
     const [showNft] = useGlobalState('showNft')
 
-    // const handleSubmit = () =>{
-      
-    //     console.log("Minted.....")
-
-    //     closeToggle()
-    // }
+    const onChangePrice = () =>{
+        setGlobalState('showNft', "scale-0")
+        setGlobalState("updateModal", "scale-100")
+    }
+        
+    
     
     const closeToggle = ()  => {
         setGlobalState('showNft', 'scale-0')
@@ -81,11 +81,13 @@ const NewNFT = () => {
                         hover:bg-[#1e0a9a] rounded-full mt-5 w-full p-2 "> 
                         Purchase 
                  </button>
-                 {/* <button className=" flex justify-center items-center
+                 <button className=" flex justify-center items-center
                         shadow-lg shadow-black text-white bg-[#b5ba25]
-                        hover:bg-[#f21404] rounded-full mt-5 w-full p-2 "> 
+                        hover:bg-[#f21404] rounded-full mt-5 w-full p-2 "
+                        onClick={onChangePrice}
+                        > 
                         Change Price
-                 </button> */}
+                 </button>
            </div>
         </div>
         </div> 
