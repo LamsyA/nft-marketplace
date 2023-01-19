@@ -1,4 +1,5 @@
 import React from 'react'
+import { setGlobalState } from '../store/Data'
 
 
 const imgBanner = 
@@ -51,7 +52,9 @@ const Card = ({ nft }) => (
                 <p className='text-sm font-semibold'>0.34 ETH</p>
             </div >
                 <button className="shadow-lg shadow-black bg-[#b5ba25]
-                 hover:bg-[#D3EE70] rounded-full px-1.5 py-1"> View Details</button>
+                 hover:bg-[#D3EE70] rounded-full px-1.5 py-1"
+                 onClick={()=> setGlobalState("showNft", "scale-100")}
+                 > View Details</button>
          </div>
    </div>
   )
