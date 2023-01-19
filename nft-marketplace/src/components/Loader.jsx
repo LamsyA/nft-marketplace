@@ -5,13 +5,12 @@ const Loader = () => {
     const [loader] = useGlobalState('loader')
   return (
     <div
-        className={`fixed top-0 left-0 w-screen h-screen
-        flex items-center justify-center dark:bg-[#8b82c6] 
-        dark:bg-opacity-50 bg-[#8573e8] bg-opacity-40
+        className={`fixed top-0 left-0 w-screen h-screen flex
+        items-center justify-center bg-[#8573e8] bg-opacity-40
         transform transition-transform duration-300 ${loader.show ? 
-          "scale-100": "scale-0"}`}>
+        "scale-100": "scale-0"}`}>
         <div
-        className='bg-[#600be9]  shadow-xl shadow-[#565457]
+        className='bg-[#600be9]  shadow-xl shadow-[#ccdd81]
         rounded-xl min-w-min px-10 pb-2 '
         > 
             <div
