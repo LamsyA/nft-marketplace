@@ -1,5 +1,6 @@
 import React from 'react'
 import nftLogo from "../assets/nft.png"
+import { connectWallet } from '../Blockchain.services'
 
 const Header = () => {
   return (
@@ -19,7 +20,8 @@ const Header = () => {
         </ul>
         <button  className='shadow-xl shadow-blue-900 text-white ml-8
         bg-[#b5ba25] hover:bg-[#D3EE70] md:text-xs p-2 
-        rounded-full '>
+        rounded-full '
+        onClick={connectWallet}>
            Connect Wallet 
         </button>
     </div>

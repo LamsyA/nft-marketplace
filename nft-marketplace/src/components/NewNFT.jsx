@@ -1,6 +1,6 @@
 import React from 'react'
 import {FaTimes} from "react-icons/fa"
-import {Identicon} from 'react-identicons'
+// import {Identicon} from 'react-identicons'
 import {setGlobalState, useGlobalState} from '../store/Data'
 
 const imgBanner =

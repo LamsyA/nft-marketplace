@@ -1,4 +1,4 @@
-import Identicon from 'react-identicons'
+// import Identicon from 'react-identicons'
 import { setGlobalState } from '../store/Data'
 
 
@@ -51,8 +51,8 @@ const Banner = () => {
                 alt='Banner'
             /> 
          <div className='flex justify-start items-center p-3 '>
-             <Identicon className="h-10 w-10 object-contain rounded-full mr-3"
-             string={"0x21..786a"} size={50} />
+             {/* <Identicon className="h-10 w-10 object-contain rounded-full mr-3"
+             string={"0x21..786a"} size={50} /> */}
              <div>
                 <p className='text-white font-semibold '>0x21..786a</p>
                 <small className='text-amber-400 font-bold'> @you</small>
