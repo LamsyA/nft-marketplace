@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect } from "react"
+import {  isWalletConnected } from "./Blockchain.services"
 import Alert from "./components/Alert"
 import Banner from "./components/Banner"
 import Collections from "./components/Collections"
@@ -12,8 +13,10 @@ import Update from "./components/Update"
 
 
 
-
 function App() {
+  useEffect( () => {
+    isWalletConnected
+  },[])
 
   return (
     <div className="min-h-screen">

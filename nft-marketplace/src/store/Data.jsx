@@ -5,6 +5,11 @@ const { setGlobalState, useGlobalState, getGlobalState} = createGlobalState ({
     updateModal: 'scale-0',
     loader: {show: false, msg: '' },
     alert: {show: false, msg: '' , color: ''},
+    connectedAccount: '',
+    nft: null,
+    nfts: [],
+    transactions: [],
+    contract: null,
  
 })
 const setAlert = (msg, color= 'green') =>{
@@ -19,10 +24,22 @@ const setLoadingMsg = (msg) => {
   setGlobalState('loader', { show: true, msg})
 }
 
+const slice = (text, startChars, endChars, maxLength) => {
+  if (text.length > maxLength) {
+    var start = text.substring(0, startChars)
+    var end = text.substring(text.length - endChars, text.length)
+    while (start.length + end.length < maxLength) {
+      start = start + '.'
+    }
+    return start + end
+  }
+  return text
+}
 export {
     useGlobalState,
     setGlobalState,
     getGlobalState,
     setLoadingMsg,
     setAlert,
+    slice,
 }

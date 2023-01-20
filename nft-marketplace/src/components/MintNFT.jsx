@@ -1,11 +1,29 @@
 import React from 'react'
 import {FaTimes} from "react-icons/fa"
 import {useState} from 'react' 
-import {setGlobalState, useGlobalState} from '../store/Data'
+import { create } from 'ipfs-http-client'
+import { Buffer } from 'buffer'
+import {setAlert, setGlobalState, setLoadingMsg, useGlobalState} from '../store/Data'
+import { mintNewNFT } from '../Blockchain.services'
+
 
 const imgBanner =
  `https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDYvNGE4NmNmOWQtODM2Mi00YmVhLThiMzctZDEyODAxNjUxZTE1LmpwZWc=.jpg`
 
+    const auth =
+    'Basic ' +
+    Buffer.from(
+    import.meta.env.VITE_INFURA_ID + ':' + import.meta.env.VITE_INFURA_SECRET_KEY,
+    ).toString('base64')
+
+    const client = create({
+    host: 'ipfs.infura.io',
+    port: 5001,
+    protocol: 'https',
+    headers: {
+    authorization: auth,
+ },
+})
 
 const MintNFT = () => {
 
@@ -18,15 +36,42 @@ const MintNFT = () => {
     const [fileUrl, setFileUrl] = useState('')
     const [imgUpload, setImgUpload] = useState(null)
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
 
         if(!title || !description || !price) return
-        console.log("Minted.....")
+        setGlobalState('modal','scale-0' )
+        setLoadingMsg('Uploading Data to IPFS...')
 
-        closeToggle()
+        try {
+            const created = await client.add(fileUrl)
+            const metadataURL = `https://ipfs.infura.io${created.path}`
+            const nft = {title, description, price, metadataURL}
+            setLoadingMsg("Awaiting Approval...")
+            console.log(nft)
+            setFileUrl(metadataURL)
+            await mintNewNFT(nft)
+            closeToggle()
+            setAlert('Successfully Minted...')
+        } catch (error) {
+            console.log("Error uploading", error.message)
+            setAlert("Minting failed...", 'red')
+            
+        }
     }
     
+    const changeImage = async (e) =>{
+        const reader = new FileReader()
+        if(e.target.files[0]) reader.readAsDataURL(e.target.files[0])
+
+        reader.onload = (readerEvent) => {
+            const file = readerEvent.target.result
+            setImgUpload(file)
+            setFileUrl(e.target.files[0])
+        }
+    }
+
+
     const closeToggle = ()  => {
         setGlobalState('modal', 'scale-0')
         resetForm()
@@ -61,7 +106,7 @@ const MintNFT = () => {
 
             <div className='flex justify-center items-center 
                 rounded-xl mt-5 '>
-                <div className='shrink-0 rounded-xl overflow-hidden h-20 w-20' >
+                <div className='shrink-0 rounded-xl overflow-hidden h-32 w-32' >
                     <img className='h-full w-full object-cover cursor-pointer'
                         src={imgUpload || imgBanner} alt='NFT' />
                 </div>
@@ -77,7 +122,7 @@ const MintNFT = () => {
                     cursor-pointer focus:ring-0'
                      type='file' 
                     accept='image/png, image/gif, image/webp, image/jpeg, image/jpg'                
-                   
+                   onChange={changeImage}
                     required/>
                 </label>
             </div>
